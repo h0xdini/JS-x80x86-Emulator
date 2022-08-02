@@ -22,6 +22,14 @@ const movInst = (source, destination) => {
     generalPurposeRegisters.cx = source
   } else if (destination.toLowerCase() === 'dx') {
     generalPurposeRegisters.dx = source
+  } else if (destination.toLowerCase() === 'si') {
+    generalPurposeRegisters.si = source
+  } else if (destination.toLowerCase() === 'di') {
+    generalPurposeRegisters.di = source
+  } else if (destination.toLowerCase() === 'sp') {
+    generalPurposeRegisters.sp = source
+  } else if (destination.toLowerCase() === 'bp') {
+    generalPurposeRegisters.bp = source
   } else if (/([0-9][0-9][0-9][0-9][0-9])/.test(destination)) {
     const memoryPosition = Number(destination.slice(1, destination.length - 1))
     console.log(Number(destination.slice(1, destination.length - 1)))
@@ -30,12 +38,14 @@ const movInst = (source, destination) => {
 }
 
 // Intrepreter
-const interpreterForMov = (movInstruction) => {
+const instructionThriceSplit = (movInstruction) => {
   if (movInstruction.startsWith('mov')) {
     let segs = movInstruction.split(' ')
     const char = '"'
-    if ((segs[2].includes(char))) {
+    if ((segs[2].includes(char)) && (segs[2].length === 3)) {
     	segs[2] = convertASCIItoHex((JSON.parse(segs[2])))	  
+    } if ((segs[2].includes(char)) && (segs[2].length > 3)) {
+    	segs[2] = (JSON.parse(segs[2]))  
     } else {
       segs[2] = Number((JSON.parse(segs[2])))	  
     }
@@ -50,5 +60,5 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
-interpreterForMov('mov [00233], "2"')
+instructionThriceSplit('mov [00233], "2"')
 console.log(memory[233])
