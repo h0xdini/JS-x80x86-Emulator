@@ -1,7 +1,7 @@
 # JS 8086 Intel Processor Assembly Emulator
 
 ## MOV destination, source
-### Rules <br />
+### Rugulations <br />
   - if source is a number we put it directly in the source(memory location or register with taking the size into consideration).
   - if source if a single quoted letter/number the emulator treats it as hex value.
   - if the source is a string we have two cases:
