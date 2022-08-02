@@ -105,16 +105,36 @@ const movInst = (source, destination, hexTwice) => {
       alert("Value out of bounds")
     }
   } else if (destination.toLowerCase() === 'si') {
-    generalPurposeRegisters.si = source
+    if (source <= 0xFFFF) {
+      generalPurposeRegisters.si = source
+    } else {
+      alert("Value out of bounds")
+    }
   } else if (destination.toLowerCase() === 'di') {
-    generalPurposeRegisters.di = source
+    if (source <= 0xFFFF) {
+      generalPurposeRegisters.di = source
+    } else {
+      alert("Value out of bounds")
+    }
   } else if (destination.toLowerCase() === 'sp') {
-    generalPurposeRegisters.sp = source
+    if (source <= 0xFFFF) {
+      generalPurposeRegisters.sp = source
+    } else {
+      alert("Value out of bounds")
+    }
   } else if (destination.toLowerCase() === 'bp') {
-    generalPurposeRegisters.bp = source
+    if (source <= 0xFFFF) {
+      generalPurposeRegisters.bp = source
+    } else {
+      alert("Value out of bounds")
+    }
   } else if (/([0-9][0-9][0-9][0-9][0-9])/.test(destination)) {
     const memoryPosition = Number(destination.slice(1, destination.length - 1))
-    memory[memoryPosition] = source
+    if (source <= 0xFFFF) {
+      memory[memoryPosition] = source
+    } else {
+      alert("Value out of bounds")
+    }
   }
 }
 
@@ -149,5 +169,5 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
-instructionThriceSplit('mov ax, "AB"')
-console.log(generalPurposeRegisters.ax)
+instructionThriceSplit('mov di, 250')
+console.log(generalPurposeRegisters.di)
