@@ -147,7 +147,6 @@ const instructionThriceSplit = (movInstruction) => {
     if ((segs[2].includes(char)) && (segs[2].length === 3)) {
     	segs[2] = Number(`0x${convertASCIItoHex((JSON.parse(segs[2])))}`)
     } else if ((segs[2].includes(char)) && (segs[2].length === 4)) {
-      
     	segs[2] = [
           Number(`0x${convertASCIItoHex((segs[2][1]))}`),
           Number(`0x${convertASCIItoHex((segs[2][2]))}`)
@@ -169,5 +168,10 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
+<<<<<<< HEAD
 instructionThriceSplit('mov di, 250')
 console.log(generalPurposeRegisters.di)
+=======
+instructionThriceSplit('mov ax, "AB"')
+console.log(generalPurposeRegisters.ax)
+>>>>>>> 81d17fce1ebb958d1175ebd116eb09d3ba8b25a4
