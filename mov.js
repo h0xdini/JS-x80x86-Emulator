@@ -127,7 +127,6 @@ const instructionThriceSplit = (movInstruction) => {
     if ((segs[2].includes(char)) && (segs[2].length === 3)) {
     	segs[2] = Number(`0x${convertASCIItoHex((JSON.parse(segs[2])))}`)
     } else if ((segs[2].includes(char)) && (segs[2].length === 4)) {
-      
     	segs[2] = [
           Number(`0x${convertASCIItoHex((segs[2][1]))}`),
           Number(`0x${convertASCIItoHex((segs[2][2]))}`)
