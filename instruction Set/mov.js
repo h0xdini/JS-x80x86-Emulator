@@ -1,4 +1,33 @@
+
 const movInst = (source, destination, hexTwice) => {
+  if ((
+    destination === 'al' ||
+    destination === 'bl' ||
+    destination === 'cl' ||
+    destination === 'dl' ||
+    destination === 'ah' ||
+    destination === 'bh' ||
+    destination === 'ch' ||
+    destination === 'dh')
+      && (source > 0xFF)) {
+    alert('Value out of bounds')
+    return
+  } 
+  
+  if ((
+    destination === 'ax' ||
+    destination === 'bx' ||
+    destination === 'cx' ||
+    destination === 'dx' ||
+    destination === 'si' ||
+    destination === 'di' ||
+    destination === 'sp' ||
+    destination === 'bp')
+      && (source > 0xFFFF)) {
+    alert('Value out of bounds')
+    return
+  }
+  
   if (destination.toLowerCase() === 'ax') {
     if ((source <= 0xFFFF) || (Array.isArray(source))) {
         if (!hexTwice) {
