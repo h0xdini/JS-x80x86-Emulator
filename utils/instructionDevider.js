@@ -22,4 +22,8 @@ const instructionThriceSplit = (movInstruction) => {
     }
   
     movInst(segs[2], segs[1].slice(0, segs[1].length-1), twice)
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 90b5f64a319984851a2125864dd8549e42867a60
