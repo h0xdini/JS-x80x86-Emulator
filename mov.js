@@ -28,8 +28,14 @@ const movInst = (source, destination, hexTwice) => {
     if ((source <= 0xFFFF) || (Array.isArray(source))) {
         if (!hexTwice) {
           if (source > 255) {
-            generalPurposeRegisters.ax.al = 255
-            generalPurposeRegisters.ax.ah = source - 255
+            const hexVal = source.toString(16).split('')
+            if (hexVal.length === 3) {
+              generalPurposeRegisters.ax.al = Number(`0x${hexVal[1]}${hexVal[2]}`)
+              generalPurposeRegisters.ax.ah = Number(`0x${hexVal[0]}`)
+            } else if (hexVal.length === 4) {
+              generalPurposeRegisters.ax.al = Number(`0x${hexVal[2]}${hexVal[3]}`)
+              generalPurposeRegisters.ax.ah = Number(`0x${hexVal[0]}${hexVal[1]}`)
+            }
           } else {
             generalPurposeRegisters.ax.al = source
           }
@@ -48,8 +54,14 @@ const movInst = (source, destination, hexTwice) => {
     if ((source <= 0xFFFF) || (Array.isArray(source))) {
         if (!hexTwice) {
           if (source > 255) {
-            generalPurposeRegisters.bx.bl = 255
-            generalPurposeRegisters.bx.bh = source - 255
+            const hexVal = source.toString(16).split('')
+            if (hexVal.length === 3) {
+              generalPurposeRegisters.bx.bl = Number(`0x${hexVal[1]}${hexVal[2]}`)
+              generalPurposeRegisters.bx.bh = Number(`0x${hexVal[0]}`)
+            } else if (hexVal.length === 4) {
+              generalPurposeRegisters.bx.bl = Number(`0x${hexVal[2]}${hexVal[3]}`)
+              generalPurposeRegisters.bx.bh = Number(`0x${hexVal[0]}${hexVal[1]}`)
+            }
           } else {
             generalPurposeRegisters.bx.bl = source
           }
@@ -68,8 +80,14 @@ const movInst = (source, destination, hexTwice) => {
     if ((source <= 0xFFFF) || (Array.isArray(source))) {
         if (!hexTwice) {
           if (source > 255) {
-            generalPurposeRegisters.cx.cl = 255
-            generalPurposeRegisters.cx.ch = source - 255
+            const hexVal = source.toString(16).split('')
+            if (hexVal.length === 3) {
+              generalPurposeRegisters.cx.cl = Number(`0x${hexVal[1]}${hexVal[2]}`)
+              generalPurposeRegisters.cx.ch = Number(`0x${hexVal[0]}`)
+            } else if (hexVal.length === 4) {
+              generalPurposeRegisters.cx.cl = Number(`0x${hexVal[2]}${hexVal[3]}`)
+              generalPurposeRegisters.cx.ch = Number(`0x${hexVal[0]}${hexVal[1]}`)
+            }
           } else {
             generalPurposeRegisters.cx.cl = source
           }
@@ -88,8 +106,14 @@ const movInst = (source, destination, hexTwice) => {
     if ((source <= 0xFFFF) || (Array.isArray(source))) {
         if (!hexTwice) {
           if (source > 255) {
-            generalPurposeRegisters.dx.dl = 255
-            generalPurposeRegisters.dx.dh = source - 255
+            const hexVal = source.toString(16).split('')
+            if (hexVal.length === 3) {
+              generalPurposeRegisters.dx.dl = Number(`0x${hexVal[1]}${hexVal[2]}`)
+              generalPurposeRegisters.dx.dh = Number(`0x${hexVal[0]}`)
+            } else if (hexVal.length === 4) {
+              generalPurposeRegisters.dx.dl = Number(`0x${hexVal[2]}${hexVal[3]}`)
+              generalPurposeRegisters.dx.dh = Number(`0x${hexVal[0]}${hexVal[1]}`)
+            }
           } else {
             generalPurposeRegisters.dx.dl = source
           }
@@ -168,10 +192,7 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
-<<<<<<< HEAD
-instructionThriceSplit('mov di, 250')
-console.log(generalPurposeRegisters.di)
-=======
-instructionThriceSplit('mov ax, "AB"')
-console.log(generalPurposeRegisters.ax)
->>>>>>> 81d17fce1ebb958d1175ebd116eb09d3ba8b25a4
+
+instructionThriceSplit('mov cx, 5620')
+console.log(generalPurposeRegisters.cx)
+
