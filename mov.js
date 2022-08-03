@@ -178,7 +178,7 @@ const instructionThriceSplit = (movInstruction) => {
         twice = true
     } else if ((segs[2].includes(char)) && (segs[2].length > 3)) {
     	segs[2] = (JSON.parse(segs[2]))  
-    } else if ((segs[2].includes('0x')) && (segs[2].length > 3)) {
+    } else if ((segs[2].includes('0x'))) {
     	segs[2] = (Number(segs[2])) 
     } else {
       segs[2] = Number((JSON.parse(segs[2])))	  
@@ -193,5 +193,5 @@ function convertASCIItoHex(asciiVal) {
     return hexValue
 }
 
-instructionThriceSplit('mov cx, 0x1234')
+instructionThriceSplit('mov cx, 0xAB')
 console.log(generalPurposeRegisters.cx)
