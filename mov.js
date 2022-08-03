@@ -192,7 +192,17 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
+<<<<<<< HEAD
 
 instructionThriceSplit('mov cx, 5620')
 console.log(generalPurposeRegisters.cx)
 
+=======
+<<<<<<< _!_ TESTING AREA _!_
+instructionThriceSplit('mov di, 250')
+console.log(generalPurposeRegisters.di)
+=======
+instructionThriceSplit('mov ax, "AB"')
+console.log(generalPurposeRegisters.ax)
+>>>>>>> _!_ END OF TESTING AREA _!_
+>>>>>>> 1ac39ec99095d897581661f620a46bc76d6fa710
