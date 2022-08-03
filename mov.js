@@ -168,10 +168,10 @@ function convertASCIItoHex(asciiVal) {
 }
 
 // tests
-<<<<<<< HEAD
+<<<<<<< _!_ TESTING AREA _!_
 instructionThriceSplit('mov di, 250')
 console.log(generalPurposeRegisters.di)
 =======
 instructionThriceSplit('mov ax, "AB"')
 console.log(generalPurposeRegisters.ax)
->>>>>>> 81d17fce1ebb958d1175ebd116eb09d3ba8b25a4
+>>>>>>> _!_ END OF TESTING AREA _!_
